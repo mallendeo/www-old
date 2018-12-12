@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Web Developer, UX / UI</title>
+  <meta name="description" content="Web Developer - UX / UI Designer">
   <meta name="keywords" content="mallendeo, developer, codepen, css, dribbble"/>
   <meta name="twitter:site" content="@mallendeo">
   <meta name="twitter:creator" content="@mallendeo">
@@ -215,17 +216,18 @@
 
     var title = document.querySelector('.title')
     var enc = atob('bWFpbHRvOm1hdXJpY2lvIGRvdCBhbGxlbmRlIGRvdCBvIGF0IGdtYWlsIGRvdCBjb20=')
+    var evConf = { passive: true }
 
     function fill () {
       document.querySelector('#to').href = enc
         .replace(/\sdot\s/g, '.')
         .replace(/\sat\s/g, '@')
-      document.removeEventListener('touchstart', fill, false)
-      document.removeEventListener('mousemove', fill, false)
+      document.removeEventListener('touchstart', fill, evConf)
+      document.removeEventListener('mousemove', fill, evConf)
     }
 
-    document.addEventListener('touchstart', fill, false)
-    document.addEventListener('mousemove', fill, false)
+    document.addEventListener('touchstart', fill, evConf)
+    document.addEventListener('mousemove', fill, evConf)
 
     function update (e) {
       var el = (e.target || e).closest('a')
@@ -237,10 +239,10 @@
       var pos = e.touches[0]
       var el = document.elementFromPoint(pos.clientX, pos.clientY)
       update(el)
-    })
+    }, evConf)
 
     document.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('mouseover', update)
+      link.addEventListener('mouseover', update, evConf)
     })
 
     window.dataLayer = window.dataLayer || []
