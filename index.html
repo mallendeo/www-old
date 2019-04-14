@@ -26,8 +26,8 @@
         min-height: 100vh;
         align-items: center;
         padding: 0 2rem;
-        font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, Arial, sans-serif;
+        font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Helvetica, Arial, sans-serif;
       }
       ul {
         padding: 0;
@@ -301,52 +301,52 @@
       src="https://www.googletagmanager.com/gtag/js?id=UA-107154674-1"
     ></script>
     <script>
-      "use strict";
+      'use strict'
 
-      var title = document.querySelector(".title");
+      var title = document.querySelector('.title')
       var enc = atob(
-        "bWFpbHRvOm1hdXJpY2lvIGRvdCBhbGxlbmRlIGRvdCBvIGF0IGdtYWlsIGRvdCBjb20="
-      );
-      var evConf = { passive: true };
+        'bWFpbHRvOm1hdXJpY2lvIGRvdCBhbGxlbmRlIGRvdCBvIGF0IGdtYWlsIGRvdCBjb20='
+      )
+      var evConf = { passive: true }
 
       function fill() {
-        document.querySelector("#to").href = enc
-          .replace(/\sdot\s/g, ".")
-          .replace(/\sat\s/g, "@");
-        document.removeEventListener("touchstart", fill, evConf);
-        document.removeEventListener("mousemove", fill, evConf);
+        document.querySelector('#to').href = enc
+          .replace(/\sdot\s/g, '.')
+          .replace(/\sat\s/g, '@')
+        document.removeEventListener('touchstart', fill, evConf)
+        document.removeEventListener('mousemove', fill, evConf)
       }
 
-      document.addEventListener("touchstart", fill, evConf);
-      document.addEventListener("mousemove", fill, evConf);
+      document.addEventListener('touchstart', fill, evConf)
+      document.addEventListener('mousemove', fill, evConf)
 
       function update(e) {
-        var el = (e.target || e).closest("a");
-        if (!el || !el.dataset.info) return;
-        title.textContent = el.dataset.info;
+        var el = (e.target || e).closest('a')
+        if (!el || !el.dataset.info) return
+        title.textContent = el.dataset.info
       }
 
-      document.querySelector("ul").addEventListener(
-        "touchmove",
+      document.querySelector('ul').addEventListener(
+        'touchmove',
         function(e) {
-          var pos = e.touches[0];
-          var el = document.elementFromPoint(pos.clientX, pos.clientY);
-          update(el);
+          var pos = e.touches[0]
+          var el = document.elementFromPoint(pos.clientX, pos.clientY)
+          update(el)
         },
         evConf
-      );
+      )
 
-      document.querySelectorAll("a").forEach(function(link) {
-        link.addEventListener("mouseover", update, evConf);
-      });
+      document.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('mouseover', update, evConf)
+      })
 
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || []
       function gtag() {
-        dataLayer.push(arguments);
+        dataLayer.push(arguments)
       }
 
-      gtag("js", new Date());
-      gtag("config", "UA-107154674-1");
+      gtag('js', new Date())
+      gtag('config', 'UA-107154674-1')
     </script>
   </body>
 </html>
